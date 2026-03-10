@@ -36,7 +36,7 @@ export default function App() {
       icon: Bot,
       color: "bg-indigo-50 border-indigo-200 text-indigo-800",
       iconColor: "text-indigo-500",
-      description: "Run the raw transcript through the Cedric AI tool to automatically organize, structure, and format the text into a standard guide.",
+      description: "Run the raw transcript through AI tool to automatically organize, structure, and format the text into a standard guide.",
       details: ["Formats raw text into User Guide", "Structures prerequisites & steps"]
     },
     {
