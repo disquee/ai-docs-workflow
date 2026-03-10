@@ -1,176 +1,183 @@
 import React from 'react';
-import { Video, FileAudio, Bot, FileText, CheckCircle, ArrowDown, User, Sparkles, AlertCircle } from 'lucide-react';
+import { Video, FileAudio, Bot, FileText, CheckCircle, ArrowRight, Zap, TrendingUp, Users, Sparkles } from 'lucide-react';
 
 export default function App() {
   const steps = [
     {
       id: 1,
-      title: "Record Feature Demo",
+      title: "SME Knowledge Capture",
       owner: "Engineer / PM",
-      role: "SME Input",
       type: "human",
       icon: Video,
-      color: "bg-slate-100 border-slate-300 text-slate-700",
-      iconColor: "text-slate-500",
-      description: "Record an MP4 screen share explaining the feature. State the goal, dependencies, and explain each step using clear action verbs.",
-      details: ["Provide background & end goal", "Use 'Step 1 - Click...' format", "Keep it minimal & focused"]
+      color: "border-blue-500",
+      bgColor: "bg-blue-50",
+      iconColor: "text-blue-600",
+      description: "Quick 5-min screen recording of feature functionality."
     },
     {
       id: 2,
       title: "Automated Transcription",
-      owner: "AWS S3 / Transcribe",
-      role: "AI Process",
+      owner: "AWS S3 / AI",
       type: "ai",
       icon: FileAudio,
-      color: "bg-blue-50 border-blue-200 text-blue-800",
-      iconColor: "text-blue-500",
-      description: "Upload the MP4 recording to the designated S3 folder to automatically generate a raw text transcript of the walkthrough.",
-      details: ["Audio to text conversion", "Automated via S3 upload"]
+      color: "border-indigo-500",
+      bgColor: "bg-indigo-50",
+      iconColor: "text-indigo-600",
+      description: "Speech-to-text pipeline extracts raw knowledge."
     },
     {
       id: 3,
       title: "AI Draft Generation",
-      owner: "AI LLM tool",
-      role: "AI Process",
+      owner: "Cedric AI",
       type: "ai",
       icon: Bot,
-      color: "bg-indigo-50 border-indigo-200 text-indigo-800",
-      iconColor: "text-indigo-500",
-      description: "Run the raw transcript through AI tool to automatically organize, structure, and format the text into a standard guide.",
-      details: ["Formats raw text into User Guide", "Structures prerequisites & steps"]
+      color: "border-indigo-500",
+      bgColor: "bg-indigo-50",
+      iconColor: "text-indigo-600",
+      description: "Structures text into standard guides & actionable steps."
     },
     {
       id: 4,
-      title: "Formatting & API Updates",
+      title: "Technical Validation",
       owner: "Engineer / PM",
-      role: "Doc Owner",
       type: "human",
       icon: FileText,
-      color: "bg-slate-100 border-slate-300 text-slate-700",
-      iconColor: "text-slate-500",
-      description: "Review the AI-generated draft. Format the User Guide, update technical API references, and ensure all examples actually work.",
-      details: ["Test all examples", "Add full results for steps", "Address the 'sneaky gotchas'"]
+      color: "border-blue-500",
+      bgColor: "bg-blue-50",
+      iconColor: "text-blue-600",
+      description: "SME verifies accuracy, code snippets, and outcomes."
     },
     {
       id: 5,
-      title: "Advisory Review & Polish",
+      title: "Editorial Polish",
       owner: "Technical Writer",
-      role: "Advisory/Editor",
       type: "human",
       icon: CheckCircle,
-      color: "bg-emerald-50 border-emerald-200 text-emerald-800",
-      iconColor: "text-emerald-500",
-      description: "Writer reviews the draft for active voice, present tense, and minimalism. Final console content review is completed.",
-      details: ["Fix wordsmithing", "Ensure UX copy standards", "Final publish"]
+      color: "border-emerald-500",
+      bgColor: "bg-emerald-50",
+      iconColor: "text-emerald-600",
+      description: "Final UX copy review, style alignment, and publish."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 p-8 font-sans">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-slate-200 flex items-center justify-center p-4 md:p-8 font-sans">
+      {/* Presentation Slide Container */}
+      <div className="w-full max-w-7xl bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col border border-slate-300 relative" style={{ minHeight: '900px' }}>
         
-        {/* Header Section */}
-        <header className="mb-12 text-center">
-          <div className="inline-flex items-center justify-center p-3 bg-indigo-100 rounded-full mb-4">
-            <Sparkles className="w-8 h-8 text-indigo-600" />
+        {/* Header Bar */}
+        <div className="bg-slate-900 text-white px-12 py-10 flex justify-between items-center">
+          <div>
+            <div className="flex items-center space-x-3 mb-2">
+              <Sparkles className="text-indigo-400 w-6 h-6" />
+              <h4 className="text-indigo-400 font-semibold tracking-widest uppercase text-sm">Strategic Initiative</h4>
+            </div>
+            <h1 className="text-4xl font-extrabold tracking-tight">AI-Accelerated Documentation Workflow</h1>
+            <p className="text-slate-300 mt-2 text-lg max-w-3xl">Optimizing resource constraints by shifting from manual drafting to an automated, engineer-driven knowledge pipeline.</p>
           </div>
-          <h1 className="text-3xl font-bold text-slate-900 mb-4">AI-Forward Documentation Workflow</h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            A modernized approach to technical documentation that reduces turnaround times by leveraging AI for drafting, allowing Engineers to own the content and Writers to act as strategic advisors.
-          </p>
-        </header>
-
-        {/* Strategy Callouts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-            <h3 className="flex items-center text-lg font-semibold text-slate-800 mb-2">
-              <User className="w-5 h-5 mr-2 text-blue-500" />
-              Role Shift: Engineers & PMs
-            </h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Act as the primary <strong>owners</strong> of the technical documentation. Instead of writing from scratch, provide the raw SME knowledge via structured video demos and refine the AI outputs.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-            <h3 className="flex items-center text-lg font-semibold text-slate-800 mb-2">
-              <AlertCircle className="w-5 h-5 mr-2 text-emerald-500" />
-              Role Shift: Tech Writers
-            </h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Serve in an <strong>advisory</strong> role due to resource constraints. Focus on providing templates, guidance, editing for minimalism, and polishing the final AI-generated drafts.
-            </p>
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="text-right">
+              <div className="text-3xl font-bold text-emerald-400">80%</div>
+              <div className="text-sm text-slate-400 uppercase tracking-wide">Est. Time Saved</div>
+            </div>
           </div>
         </div>
 
-        {/* Workflow Diagram */}
-        <div className="relative">
-          {/* Connecting Line */}
-          <div className="absolute left-8 top-8 bottom-8 w-1 bg-slate-200 rounded-full md:left-1/2 md:-ml-0.5 z-0 hidden md:block"></div>
+        {/* Main Content Area */}
+        <div className="flex-grow p-12 pb-16 flex flex-col justify-between bg-slate-50">
+          
+          {/* Top Row: The Value Proposition */}
+          <div className="grid grid-cols-3 gap-8 mb-10">
+            <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex items-start space-x-4">
+              <div className="bg-emerald-100 p-3 rounded-full"><TrendingUp className="w-6 h-6 text-emerald-600" /></div>
+              <div>
+                <h3 className="font-bold text-slate-800 text-lg">Increase Velocity</h3>
+                <p className="text-sm text-slate-600 leading-snug mt-1">Eliminate writer bottlenecks. Docs are created concurrently with product development.</p>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex items-start space-x-4">
+              <div className="bg-blue-100 p-3 rounded-full"><Users className="w-6 h-6 text-blue-600" /></div>
+              <div>
+                <h3 className="font-bold text-slate-800 text-lg">Empower SMEs</h3>
+                <p className="text-sm text-slate-600 leading-snug mt-1">Engineers dictate knowledge easily via video, avoiding the friction of blank-page writing.</p>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex items-start space-x-4">
+              <div className="bg-indigo-100 p-3 rounded-full"><Zap className="w-6 h-6 text-indigo-600" /></div>
+              <div>
+                <h3 className="font-bold text-slate-800 text-lg">Optimize Writers</h3>
+                <p className="text-sm text-slate-600 leading-snug mt-1">Shifts writers from manual drafters to high-value strategic editors and UX advisors.</p>
+              </div>
+            </div>
+          </div>
 
-          <div className="space-y-6 relative z-10">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isEven = index % 2 === 0;
-              
-              return (
-                <div key={step.id} className={`flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                  
-                  {/* Empty space for alternating layout on desktop */}
-                  <div className="hidden md:block md:w-1/2"></div>
-                  
-                  {/* Center Node / Number */}
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white border-4 border-slate-100 shadow-md flex items-center justify-center z-10 my-4 md:my-0 mx-4 relative">
-                    {step.type === 'ai' ? (
-                      <Sparkles className={`w-6 h-6 ${step.iconColor}`} />
-                    ) : (
-                      <span className="text-xl font-bold text-slate-400">{step.id}</span>
-                    )}
-                  </div>
-
-                  {/* Content Card */}
-                  <div className="w-full md:w-1/2 px-4">
-                    <div className={`p-6 rounded-2xl border shadow-sm ${step.color} transition-transform hover:-translate-y-1 duration-200`}>
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="flex items-center">
-                          <div className={`p-2 rounded-lg bg-white bg-opacity-50 mr-3`}>
-                            <Icon className={`w-6 h-6 ${step.iconColor}`} />
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-lg">{step.title}</h3>
-                            <div className="text-xs font-semibold uppercase tracking-wider opacity-70 mt-1">
-                              {step.owner} • {step.role}
-                            </div>
-                          </div>
+          {/* Middle Row: The Workflow Pipeline */}
+          <div className="relative flex-grow flex items-center mb-12 mt-4">
+            {/* Background connecting line */}
+            <div className="absolute top-1/2 left-0 w-full h-1.5 bg-slate-200 -translate-y-1/2 z-0"></div>
+            
+            <div className="grid grid-cols-5 gap-5 w-full relative z-10">
+              {steps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={step.id} className="relative flex flex-col">
+                    {/* Node */}
+                    <div className={`bg-white border-4 ${step.color} rounded-xl p-6 shadow-lg flex flex-col items-center text-center h-full relative z-10`}>
+                      {step.type === 'ai' && (
+                        <div className="absolute -top-3 -right-3 bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider flex items-center">
+                          <Sparkles className="w-3 h-3 mr-1" /> AI Process
                         </div>
+                      )}
+                      
+                      <div className={`${step.bgColor} p-4 rounded-full mb-4`}>
+                        <Icon className={`w-8 h-8 ${step.iconColor}`} />
                       </div>
                       
-                      <p className="text-sm opacity-90 mb-4 leading-relaxed">
-                        {step.description}
-                      </p>
-
-                      <ul className="space-y-1.5">
-                        {step.details.map((detail, i) => (
-                          <li key={i} className="text-xs flex items-center opacity-80">
-                            <span className="w-1.5 h-1.5 rounded-full bg-current opacity-50 mr-2"></span>
-                            {detail}
-                          </li>
-                        ))}
-                      </ul>
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Step {step.id}</span>
+                      <h3 className="font-bold text-slate-800 text-lg mb-2 leading-tight">{step.title}</h3>
+                      <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>
                     </div>
+
+                    {/* Arrows between nodes */}
+                    {index < steps.length - 1 && (
+                      <div className="absolute top-1/2 -right-4 -translate-y-1/2 z-20 text-slate-400 bg-slate-50 rounded-full border border-slate-200 shadow-sm p-1 hidden lg:block" style={{ transform: 'translate(50%, -50%)' }}>
+                        <ArrowRight className="w-5 h-5" />
+                      </div>
+                    )}
                   </div>
-
-                  {/* Mobile connecting arrow */}
-                  {index < steps.length - 1 && (
-                    <div className="md:hidden flex justify-center w-full my-2 text-slate-300">
-                      <ArrowDown className="w-6 h-6" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
 
+          {/* Bottom Row: Role Definition */}
+          <div className="grid grid-cols-2 gap-8">
+            <div className="bg-slate-100 rounded-lg p-8 border-l-4 border-blue-500 flex items-center space-x-6">
+              <div className="flex-shrink-0 text-center">
+                <span className="block text-sm text-slate-500 font-bold uppercase tracking-wider mb-1">Role 1</span>
+                <span className="block text-xl font-black text-slate-800">Engineer / PM</span>
+              </div>
+              <div className="w-px h-16 bg-slate-300"></div>
+              <div>
+                <strong className="text-blue-700 block mb-1 text-lg">The Content Owners</strong>
+                <p className="text-sm text-slate-600">Provide the raw SME knowledge via standard demos and own the technical accuracy of the final generated output.</p>
+              </div>
+            </div>
+
+            <div className="bg-slate-100 rounded-lg p-8 border-l-4 border-emerald-500 flex items-center space-x-6">
+              <div className="flex-shrink-0 text-center">
+                <span className="block text-sm text-slate-500 font-bold uppercase tracking-wider mb-1">Role 2</span>
+                <span className="block text-xl font-black text-slate-800">Technical Writer</span>
+              </div>
+              <div className="w-px h-16 bg-slate-300"></div>
+              <div>
+                <strong className="text-emerald-700 block mb-1 text-lg">The Strategic Advisors</strong>
+                <p className="text-sm text-slate-600">Freed from manual typing. Focus on establishing UX standards, enforcing minimalism, and final quality assurance.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );
