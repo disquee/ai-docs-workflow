@@ -30,7 +30,7 @@ export default function App() {
     {
       id: 3,
       title: "AI Draft Generation",
-      owner: "Cedric AI",
+      owner: "AI LLM tool",
       role: "AI Process",
       type: "ai",
       icon: Bot,
